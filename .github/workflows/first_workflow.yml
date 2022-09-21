@@ -22,7 +22,7 @@ jobs:
     steps:
       - name: firstJob script
         shell: cmd
-        run: echo Hello World! This is the first job
+        run: echo Hello World! This is the first job from tselvam-linux
   
   secondjob:
     runs-on: ubuntu-latest
