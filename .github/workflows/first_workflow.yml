@@ -1,7 +1,8 @@
 # This is a basic workflow to help you get started with Actions
 
 name: CI_first_workflow
-
+env:
+  WORKFLOW_VAR: "This variable is declated at the Workflow level"
 # Controls when the workflow will run
 on:
   # Triggers the workflow on push or pull request events but only for the "main" branch
@@ -40,6 +41,8 @@ jobs:
   secondjob:
     runs-on: ubuntu-latest
     needs: firstjob
+    env:
+      JOB_VAR: "This variable is declated at the Job level"
       # Steps represent a sequence of tasks that will be executed as part of the job
     steps:
       # Checks-out your repository under $GITHUB_WORKSPACE, so your job can access it
@@ -54,3 +57,16 @@ jobs:
         run: |
           echo Add other actions to build,
           echo test, and deploy your project.
+      - name: environment variables
+        env:
+          STEP_VARIABLE: "This is a step variable"
+        run: |
+          echo $WORKFLOW_VAR
+          echo $JOB_VAR
+          echo $STEP_VAR
+          echo $SOME_SECRET
+          echo "The following is a secret: ${{ secrets.SOME_SECRET }}, of course, I cant show this
+          echo "The following are the default github variables"
+          echo $GITHUB_ACTOR
+          echo $GITHUB_JOB
+          echo $GITHUB_REF
