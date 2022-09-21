@@ -63,8 +63,7 @@ jobs:
         run: |
           echo $WORKFLOW_VAR
           echo $JOB_VAR
-          echo $STEP_VAR
-          echo $SOME_SECRET
+          echo $STEP_VARIABLE
           echo "The following is a secret: ${{ secrets.SOME_SECRET }}, of course, I cant show this"
           echo "The following are the default github variables"
           echo $GITHUB_ACTOR
