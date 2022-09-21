@@ -18,12 +18,14 @@ jobs:
   # This workflow contains a single job called "build"
   firstjob:
     # The type of runner that the job will run on
-    runs-on: self-hosted
+    runs-on: ubuntu-latest
     steps:
       - name: firstJob script
-        shell: cmd
-        run: echo Hello World! This is the first job from tselvam-linux
-  
+        shell: bash
+        run: echo Hello World! This is the first job from latest ubuntu
+      - name: Checkout
+        uses: actions/checkout@v2.4.2
+
   secondjob:
     runs-on: ubuntu-latest
       # Steps represent a sequence of tasks that will be executed as part of the job
